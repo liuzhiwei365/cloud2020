@@ -52,6 +52,7 @@
         <module>cloudalibaba-provider-payment9003</module>
         <module>cloudalibaba-provider-payment9004</module>
         <module>cloudalibaba-consumer-nacos-order84</module>
+        <module>for-apollo</module>
 
     </modules>
     <packaging>pom</packaging>
@@ -136,27 +137,21 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.5.4.RELEASE</version>
                 <configuration>
-                    <fork>true</fork>
-                    <addResources>true</addResources>
+                   <!-- <mainClass>${start-class}</mainClass> -->
+                    <layout>ZIP</layout>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
 
-    <!--第三方maven私服-->
-    <repositories>
-        <repository>
-            <id>nexus-aliyun</id>
-            <name>Nexus aliyun</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 
 </project>
